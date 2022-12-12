@@ -38,7 +38,7 @@ month = 12
 year = 2022
 day_of_week = 2
 day_of_year = 345
-hour = 17
+hour = 3
 cn_bird = 0
 cn_lime = 0
 cn_lyft = 1
@@ -54,37 +54,44 @@ with st.sidebar:
     address_select = st.selectbox("Select your address",address_df['Display'],index=1) 
 
     date_select = st.date_input("What day do you want to ride?")
-    hour_select = st.selectbox("Pick an hour range",('12-5','6-9','10-12','1-3','4-6','7-9','10-12'))
+
+    month = date_select.month
+    year = date_select.year
+    day_of_week = date_select.weekday()
+    day_of_year = date_select.timetuple().tm_yday
+
+    hour_select = st.selectbox("Pick an hour range",('12am-5am','6am-8am','9am-11am','12pm-2pm','3pm-5pm','6pm-8pm','9pm-11pm'))
+
+    if hour_select == '12am-5am':
+        hour = 0
+    elif hour_select == '6am-8am':
+        hour = 1
+    elif hour_select == '9am-11am':
+        hour = 2
+    elif hour_select == '12pm-2pm':
+        hour = 3
+    elif hour_select == '3pm-5pm':
+        hour = 4
+    elif hour_select == '6pm-8pm':
+        hour = 5
+    elif hour_select == '9pm-11pm':
+        hour = 6    
+
+    cn_bird = 0
+    cn_lime = 0
+    cn_lyft = 0
+    cn_spin = 0
     brand = st.radio("Select a preferred brand:",('Bird','Lime','Lyft','Spin'))
 
     if brand == 'Bird':
         cn_bird = 1
-        cn_lime = 0
-        cn_lyft = 0
-        cn_spin = 0
-
-    if brand == 'Lime':
-        cn_bird = 0
+    elif brand == 'Lime':
         cn_lime = 1
-        cn_lyft = 0
-        cn_spin = 0
-
-    if brand == 'Lyft':
-        cn_bird = 0
-        cn_lime = 0
+    elif brand == 'Lyft':
         cn_lyft = 1
-        cn_spin = 0
-
-    if brand == 'Spin':
-        cn_bird = 0
-        cn_lime = 0
-        cn_lyft = 0
+    elif brand == 'Spin':
         cn_spin = 1
 
-    #bird_check = st.checkbox("Bird", value=False)
-    #lime_check = st.checkbox("Lime", value=False)
-    #lyft_check = st.checkbox("Lyft", value=False)
-    #spin_check = st.checkbox("Spin", value=False)
     distance = st.selectbox("Select a distance from you",(.1,.15,.2,.25,.3,.35,.4,.45,.5,.75,1))
     search_button = st.button('Find a scooter!')
 
@@ -117,11 +124,9 @@ def run():
 
     origin_point = get_coordinates(address_select)
 
-    print(origin_point)
-
-    coords = origin_point['geometry']
-    origin_latlon = origin_point['latlon']
-    origin_address = origin_point['Display']
+    coords = origin_point.iloc[0]['geometry']
+    origin_latlon = origin_point.iloc[0]['latlon']
+    #origin_address = origin_point['Display']
 
     m = folium.Map(location=json.loads(origin_latlon), zoom_start=18)
     folium.Marker(json.loads(origin_latlon),popup="<i> Your Address: " + origin_address + "</i>").add_to(m)
