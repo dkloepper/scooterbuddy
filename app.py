@@ -71,24 +71,27 @@ def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_
 
 body_container = st.container()
 input_container = st.container()
+input_form = st.form("input",clear_on_submit=False)
 result_container = st.container()
 #form_sidebar = st.sidebar()
 
 #with form_sidebar:
 #with st.sidebar:
 with input_container:
-    address_select = st.text_input("Enter your address")
-    #address_select = st.selectbox("Select your address",address_df['Display'])
+    with input_form:
+        address_select = st.text_input("Enter your address")
+        #address_select = st.selectbox("Select your address",address_df['Display'])
 
-    date_select = st.date_input("What day do you want to ride?")
+        date_select = st.date_input("What day do you want to ride?")
 
-    hour_select = st.selectbox("Pick an hour range",('12am-5am','6am-8am','9am-11am','12pm-2pm','3pm-5pm','6pm-8pm','9pm-11pm'))
+        hour_select = st.selectbox("Pick an hour range",('12am-5am','6am-8am','9am-11am','12pm-2pm','3pm-5pm','6pm-8pm','9pm-11pm'))
 
-    brand = st.radio("Select a preferred brand:",('Bird','Lime','Lyft','Spin'))
+        brand = st.radio("Select a preferred brand:",('Bird','Lime','Lyft','Spin'))
 
-    distance = st.selectbox("Select a distance from you",(.1,.15,.2,.25,.3,.35,.4,.45,.5,.75,1))
+        distance = st.selectbox("Select a distance from you",(.1,.15,.2,.25,.3,.35,.4,.45,.5,.75,1))
 
-    search_button = st.button('Find a scooter!')
+        #search_button = st.button('Find a scooter!')
+        search_button = st.form_submit_button('Find a scooter!')
 
 with body_container:
     st.title("Scooter Buddy")
@@ -155,7 +158,6 @@ def mapping():
         folium.Marker(json.loads(r['latlon']),popup="<i> Expected Available: " + str(scooters) + "</i>",icon=folium.Icon(color='green')).add_to(m)
 
     return m
-
 
 def main():
     if search_button:
