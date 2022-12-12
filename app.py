@@ -24,7 +24,8 @@ import folium
 
 from sklearn.neighbors import KNeighborsRegressor
 
-@st.cache(persist=True)
+#@st.cache(persist=True)
+@st.cache(allow_output_mutation=True)
 
 #filename = 'scooter_pickle.sav'
 
