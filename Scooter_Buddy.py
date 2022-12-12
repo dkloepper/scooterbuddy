@@ -100,7 +100,7 @@ with left:
 
     st.header('Enter your search criteria')
 
-    address_list = pd.read_csv('Address_List.csv',header=0).squeeze("Display")
+    address_list = pd.read_csv('Address_List.csv',header=0).squeeze("columns")
 
     input_form = st.form("input",clear_on_submit=False)
 
