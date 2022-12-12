@@ -14,13 +14,16 @@ import geopandas as gpd
 
 import pickle as pkl
 
+import streamlit as st
+
 from IPython.display import display
 from ipywidgets import embed
-import streamlit.components.v1 as components
-import streamlit as st
+#import streamlit.components.v1 as components
 
 from streamlit_folium import st_folium
 import folium
+
+from sklearn.neighbors import KNeighborsRegressor
 
 
 filename = 'scooter_pickle.sav'
