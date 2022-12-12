@@ -45,12 +45,13 @@ centerline_df = scooter_pkl['centerlines']
 #cn_spin = 0
 
 body_container = st.container()
-#input_container = st.container
+input_container = st.container
 result_container = st.container()
 #form_sidebar = st.sidebar()
 
 #with form_sidebar:
-with st.sidebar:
+#with st.sidebar:
+with input_container:
     address_select = st.selectbox("Select your address",address_df['Display']) 
 
     date_select = st.date_input("What day do you want to ride?")
@@ -70,7 +71,6 @@ with body_container:
     #search_button = st.button('Find a hotel')
 
 @st.cache(persist=True)
-
 
 def get_coordinates(address):
     #Return the coordinates associated with address
