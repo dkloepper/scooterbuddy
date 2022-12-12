@@ -94,12 +94,6 @@ with body_container:
     st.title("Scooter Buddy")
     st.markdown("""---""")
 
-    #m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
-    #folium.Marker(
-    #    [39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell"
-    #).add_to(m)
-    #st_folium(m, width=725, returned_objects=[])
-
 def mapping():
 
     month = date_select.month
@@ -136,12 +130,23 @@ def mapping():
     elif brand == 'Spin':
         cn_spin = 1
 
+    if distance < .25:
+        zoom = 17
+    elif distance < .5:
+        zoom = 15
+    elif distance < .75:
+        zoom = 13
+    elif distance <= 1:
+        zoom = 10
+    else:
+        zoom = 18
+
     origin_point = get_coordinates(address_select)
 
     coords = origin_point.iloc[0]['geometry']
     origin_latlon = origin_point.iloc[0]['latlon']
 
-    m = folium.Map(location=json.loads(origin_latlon), zoom_start=18)
+    m = folium.Map(location=json.loads(origin_latlon), zoom_start=zoom)
     folium.Marker(json.loads(origin_latlon),popup="<i> Your Address: " + address_select + "</i>").add_to(m)
 
     for _, r in find_within_dist(coords,distance).iterrows():
