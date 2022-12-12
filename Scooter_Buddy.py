@@ -117,8 +117,8 @@ with left:
 
 with right:
 
-    map_container = st.container()
-    with map_container:
+    map_container = st.empty()
+    with map_container.container():
         m = folium.Map(location=[44.968996124, -93.240332372], zoom_start=18)
         folium.Marker(
             [44.968996124, -93.240332372], popup="Carlson School of Management"
@@ -192,7 +192,7 @@ def main():
     if search_button:
         m = mapping()
         map_container.empty()
-        with map_container:
+        with map_container.container():
             #st.header('Mapping Scooter Availability')
             st_data = st_folium(m, width = 725, returned_objects=[])
 
