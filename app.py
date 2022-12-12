@@ -94,13 +94,13 @@ with body_container:
     st.title("Scooter Buddy")
     st.markdown("""---""")
 
-    m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
-    folium.Marker(
-        [39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell"
-    ).add_to(m)
-    st_folium(m, width=725, returned_objects=[])
+    #m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
+    #folium.Marker(
+    #    [39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell"
+    #).add_to(m)
+    #st_folium(m, width=725, returned_objects=[])
 
-def run():
+def mapping():
 
     month = date_select.month
     year = date_select.year
@@ -149,10 +149,16 @@ def run():
         scooters = round(make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin),0)
         folium.Marker(json.loads(r['latlon']),popup="<i> Expected Available: " + str(scooters) + "</i>",icon=folium.Icon(color='green')).add_to(m)
 
+    return m
+
+
+def main():
+    if search_button:
+        m = mapping()
+
     with result_container:
         st.header('Mapping Scooter Availability')
-        st_data = st_folium(m, width = 725)
+        st_data = st_folium(m, width = 725, returned_objects=[])
 
-
-if search_button:
-    run()
+if __name__ == '__main__':
+	main()
