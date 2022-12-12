@@ -124,7 +124,7 @@ with right:
             [44.968996124, -93.240332372], popup="Carlson School of Management"
         ).add_to(m)
 
-        st_data = st_folium(m, width = 725, returned_objects=[])
+        st_data = st_folium(m, width = 500, length=500, returned_objects=[])
 
 def mapping():
 
@@ -194,7 +194,7 @@ def main():
         map_container.empty()
         with map_container.container():
             #st.header('Mapping Scooter Availability')
-            st_data = st_folium(m, width = 725, returned_objects=[])
+            st_data = st_folium(m, width = 500, length=500, returned_objects=[])
 
 if __name__ == '__main__':
 	main()
