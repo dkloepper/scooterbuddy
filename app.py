@@ -77,7 +77,13 @@ result_container = st.container()
 
 #with form_sidebar:
 #with st.sidebar:
-with input_container:
+#with input_container:
+
+
+with body_container:
+    st.title("Scooter Buddy")
+    st.markdown("""---""")
+
     with input_form:
         address_select = st.text_input("Enter your address")
         #address_select = st.selectbox("Select your address",address_df['Display'])
@@ -92,10 +98,6 @@ with input_container:
 
         #search_button = st.button('Find a scooter!')
         search_button = st.form_submit_button('Find a scooter!')
-
-with body_container:
-    st.title("Scooter Buddy")
-    st.markdown("""---""")
 
 def mapping():
 
