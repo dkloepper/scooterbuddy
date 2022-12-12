@@ -7,4 +7,4 @@ folium
 streamlit_folium
 ipywidgets
 geopandas
-scikit-learn==0.23.2
+scikit-learn
