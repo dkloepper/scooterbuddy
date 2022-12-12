@@ -94,6 +94,12 @@ with body_container:
     st.title("Scooter Buddy")
     st.markdown("""---""")
 
+    m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
+    folium.Marker(
+        [39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell"
+    ).add_to(m)
+    st_folium(m, width=725, returned_objects=[])
+
 def run():
 
     month = date_select.month
