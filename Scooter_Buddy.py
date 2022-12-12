@@ -75,10 +75,12 @@ def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_
   prediction = model.predict(entry)
   return prediction[0]
 
-body_container = st.container()
-input_container = st.container()
+left, right = st.columns(2)
+
+#body_container = st.container()
+#input_container = st.container()
 input_form = st.form("input",clear_on_submit=False)
-result_container = st.container()
+#result_container = st.container()
 #form_sidebar = st.sidebar()
 
 #with form_sidebar:
@@ -86,10 +88,11 @@ result_container = st.container()
 #with input_container:
 
 
-with body_container:
-    st.title("Scooter Buddy")
-    st.markdown("""---""")
+#with body_container:
+st.title("Scooter Buddy")
+st.markdown("""---""")
 
+with left:
     with input_form:
         address_select = st.text_input("Enter your address")
         #address_select = st.selectbox("Select your address",address_df['Display'])
@@ -171,7 +174,7 @@ def main():
     if search_button:
         m = mapping()
 
-        with result_container:
+        with right:
             st.header('Mapping Scooter Availability')
             st_data = st_folium(m, width = 725, returned_objects=[])
 
