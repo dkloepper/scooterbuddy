@@ -79,7 +79,7 @@ def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_
 
 #body_container = st.container()
 #input_container = st.container()
-input_form = st.form("input",clear_on_submit=False)
+
 #result_container = st.container()
 #form_sidebar = st.sidebar()
 
@@ -94,7 +94,12 @@ st.markdown("""---""")
 
 left, right = st.columns(2)
 
+
+
 with left:
+
+    input_form = st.form("input",clear_on_submit=False)
+
     with input_form:
         address_select = st.text_input("Enter your address")
         #address_select = st.selectbox("Select your address",address_df['Display'])
