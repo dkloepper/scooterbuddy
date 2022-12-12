@@ -136,11 +136,11 @@ def run():
         scooters = round(make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin),0)
         folium.Marker(json.loads(r['latlon']),popup="<i> Expected Available: " + str(scooters) + "</i>",icon=folium.Icon(color='green')).add_to(m)
 
-    with result_container:
+    #with result_container:
     
-        st.header('Mapping Scooter Availability')
+    st.header('Mapping Scooter Availability')
 
-        st_data = st_folium(m, width = 725)
+    st_data = st_folium(m, width = 725)
 
 
 if search_button:
