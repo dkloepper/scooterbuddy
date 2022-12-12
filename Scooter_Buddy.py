@@ -75,7 +75,7 @@ def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_
   prediction = model.predict(entry)
   return prediction[0]
 
-left, right = st.columns(2)
+
 
 #body_container = st.container()
 #input_container = st.container()
@@ -91,6 +91,8 @@ input_form = st.form("input",clear_on_submit=False)
 #with body_container:
 st.title("Scooter Buddy")
 st.markdown("""---""")
+
+left, right = st.columns(2)
 
 with left:
     with input_form:
