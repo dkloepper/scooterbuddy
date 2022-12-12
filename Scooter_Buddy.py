@@ -98,15 +98,17 @@ left, right = st.columns(2)
 
 with left:
 
+    st.header('Enter your search criteria')
+
     input_form = st.form("input",clear_on_submit=False)
 
     with input_form:
-        address_select = st.text_input("Enter your address")
+        address_select = st.text_input("Select your starting address:")
         #address_select = st.selectbox("Select your address",address_df['Display'])
 
         date_select = st.date_input("What day do you want to ride?")
 
-        hour_select = st.selectbox("Pick an hour range",('12am-5am','6am-8am','9am-11am','12pm-2pm','3pm-5pm','6pm-8pm','9pm-11pm'))
+        hour_select = st.selectbox("Pick time to ride",('12am-5am','6am-8am','9am-11am','12pm-2pm','3pm-5pm','6pm-8pm','9pm-11pm'))
 
         brand = st.radio("Select a preferred brand:",('Bird','Lime','Lyft','Spin'))
 
@@ -124,7 +126,7 @@ with right:
             [44.968996124, -93.240332372], popup="Carlson School of Management"
         ).add_to(m)
 
-        st_data = st_folium(m, width = 500, height=500, returned_objects=[])
+        st_data = st_folium(m, width = 650, height=650, returned_objects=[])
 
 def mapping():
 
@@ -194,7 +196,7 @@ def main():
         map_container.empty()
         with map_container.container():
             #st.header('Mapping Scooter Availability')
-            st_data = st_folium(m, width = 500, height=500, returned_objects=[])
+            st_data = st_folium(m, width = 650, height=650, returned_objects=[])
 
 if __name__ == '__main__':
 	main()
