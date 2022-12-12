@@ -116,13 +116,15 @@ with left:
         search_button = st.form_submit_button('Find a scooter!')
 
 with right:
-    #st.header('Mapping Scooter Availability')
-    m = folium.Map(location=[44.968996124, -93.240332372], zoom_start=18)
-    folium.Marker(
-        [44.968996124, -93.240332372], popup="Carlson School of Management"
-    ).add_to(m)
 
-    st_data = st_folium(m, width = 725, returned_objects=[])
+    map_container = st.container
+    with map_container:
+        m = folium.Map(location=[44.968996124, -93.240332372], zoom_start=18)
+        folium.Marker(
+            [44.968996124, -93.240332372], popup="Carlson School of Management"
+        ).add_to(m)
+
+        st_data = st_folium(m, width = 725, returned_objects=[])
 
 def mapping():
 
@@ -189,8 +191,8 @@ def mapping():
 def main():
     if search_button:
         m = mapping()
-
-        with right:
+        map_container = st.empty()
+        with map_container:
             #st.header('Mapping Scooter Availability')
             st_data = st_folium(m, width = 725, returned_objects=[])
 
