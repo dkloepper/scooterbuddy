@@ -70,13 +70,13 @@ def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_
   return prediction[0]
 
 body_container = st.container()
-input_container = st.container()
+#input_container = st.container()
 result_container = st.container()
 #form_sidebar = st.sidebar()
 
 #with form_sidebar:
-#with st.sidebar:
-with input_container:
+with st.sidebar:
+#with input_container:
     address_select = st.text_input("Enter your address")
     #address_select = st.selectbox("Select your address",address_df['Display'])
 
