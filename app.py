@@ -55,44 +55,12 @@ with st.sidebar:
 
     date_select = st.date_input("What day do you want to ride?")
 
-    month = date_select.month
-    year = date_select.year
-    day_of_week = date_select.weekday()
-    day_of_year = date_select.timetuple().tm_yday
-
     hour_select = st.selectbox("Pick an hour range",('12am-5am','6am-8am','9am-11am','12pm-2pm','3pm-5pm','6pm-8pm','9pm-11pm'))
 
-    if hour_select == '12am-5am':
-        hour = 0
-    elif hour_select == '6am-8am':
-        hour = 1
-    elif hour_select == '9am-11am':
-        hour = 2
-    elif hour_select == '12pm-2pm':
-        hour = 3
-    elif hour_select == '3pm-5pm':
-        hour = 4
-    elif hour_select == '6pm-8pm':
-        hour = 5
-    elif hour_select == '9pm-11pm':
-        hour = 6    
-
-    cn_bird = 0
-    cn_lime = 0
-    cn_lyft = 0
-    cn_spin = 0
     brand = st.radio("Select a preferred brand:",('Bird','Lime','Lyft','Spin'))
 
-    if brand == 'Bird':
-        cn_bird = 1
-    elif brand == 'Lime':
-        cn_lime = 1
-    elif brand == 'Lyft':
-        cn_lyft = 1
-    elif brand == 'Spin':
-        cn_spin = 1
-
     distance = st.selectbox("Select a distance from you",(.1,.15,.2,.25,.3,.35,.4,.45,.5,.75,1))
+
     search_button = st.button('Find a scooter!')
 
 with body_container:
@@ -121,6 +89,40 @@ def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_
   return prediction[0]
 
 def run():
+
+    month = date_select.month
+    year = date_select.year
+    day_of_week = date_select.weekday()
+    day_of_year = date_select.timetuple().tm_yday
+
+    if hour_select == '12am-5am':
+        hour = 0
+    elif hour_select == '6am-8am':
+        hour = 1
+    elif hour_select == '9am-11am':
+        hour = 2
+    elif hour_select == '12pm-2pm':
+        hour = 3
+    elif hour_select == '3pm-5pm':
+        hour = 4
+    elif hour_select == '6pm-8pm':
+        hour = 5
+    elif hour_select == '9pm-11pm':
+        hour = 6 
+
+    cn_bird = 0
+    cn_lime = 0
+    cn_lyft = 0
+    cn_spin = 0
+
+    if brand == 'Bird':
+        cn_bird = 1
+    elif brand == 'Lime':
+        cn_lime = 1
+    elif brand == 'Lyft':
+        cn_lyft = 1
+    elif brand == 'Spin':
+        cn_spin = 1
 
     origin_point = get_coordinates(address_select)
 
