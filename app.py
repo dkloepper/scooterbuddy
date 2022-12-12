@@ -45,10 +45,12 @@ cn_lyft = 1
 cn_spin = 0
 
 body_container = st.container()
+#input_container = st.container
 result_container = st.container()
-form_sidebar = st.sidebar()
+#form_sidebar = st.sidebar()
 
-with form_sidebar:
+#with form_sidebar:
+with st.sidebar:
     address_select = st.selectbox("Select your address",address_df['Display'],index=1) 
 
     date_select = st.date_input("What day do you want to ride?")
