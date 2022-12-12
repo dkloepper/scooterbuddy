@@ -45,7 +45,7 @@ centerline_df = scooter_pkl['centerlines']
 #cn_spin = 0
 
 body_container = st.container()
-input_container = st.container
+input_container = st.container()
 result_container = st.container()
 #form_sidebar = st.sidebar()
 
