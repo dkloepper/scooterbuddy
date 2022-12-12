@@ -122,13 +122,13 @@ with left:
 with right:
 
     map_container = st.empty()
-    with map_container.container():
-        m = folium.Map(location=[44.968996124, -93.240332372], zoom_start=18)
-        folium.Marker(
-            [44.968996124, -93.240332372], popup="Carlson School of Management"
-        ).add_to(m)
+    #with map_container.container():
+    #    m = folium.Map(location=[44.968996124, -93.240332372], zoom_start=18)
+    #    folium.Marker(
+    #        [44.968996124, -93.240332372], popup="Carlson School of Management"
+    #    ).add_to(m)
 
-        st_data = st_folium(m, width = 650, height=650, returned_objects=[])
+    #   st_data = st_folium(m, width = 650, height=650, returned_objects=[])
 
 def mapping():
 
