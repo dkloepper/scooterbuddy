@@ -117,7 +117,7 @@ with left:
 
 with right:
 
-    map_container = st.container
+    map_container = st.container()
     with map_container:
         m = folium.Map(location=[44.968996124, -93.240332372], zoom_start=18)
         folium.Marker(
