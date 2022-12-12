@@ -156,9 +156,9 @@ def main():
     if search_button:
         m = mapping()
 
-    with result_container:
-        st.header('Mapping Scooter Availability')
-        st_data = st_folium(m, width = 725, returned_objects=[])
+        with result_container:
+            st.header('Mapping Scooter Availability')
+            st_data = st_folium(m, width = 725, returned_objects=[])
 
 if __name__ == '__main__':
 	main()
