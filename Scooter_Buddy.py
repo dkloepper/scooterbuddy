@@ -100,11 +100,13 @@ with left:
 
     st.header('Enter your search criteria')
 
+    address_list = pd.read_csv('Address_List.csv',header=0).squeeze("Display")
+
     input_form = st.form("input",clear_on_submit=False)
 
     with input_form:
-        address_select = st.text_input("Select your starting address:")
-        #address_select = st.selectbox("Select your address",address_df['Display'])
+        #address_select = st.text_input("Select your starting address:")
+        address_select = st.selectbox("Select your address",address_list)
 
         date_select = st.date_input("What day do you want to ride?")
 
