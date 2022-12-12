@@ -133,11 +133,11 @@ def mapping():
     if distance < .25:
         zoom = 17
     elif distance < .5:
-        zoom = 15
+        zoom = 16
     elif distance < .75:
-        zoom = 13
+        zoom = 15
     elif distance <= 1:
-        zoom = 10
+        zoom = 14
     else:
         zoom = 18
 
