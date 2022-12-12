@@ -34,15 +34,15 @@ model = scooter_pkl['model']
 address_df = scooter_pkl['addresses']
 centerline_df = scooter_pkl['centerlines']
 
-month = 12
-year = 2022
-day_of_week = 2
-day_of_year = 345
-hour = 3
-cn_bird = 0
-cn_lime = 0
-cn_lyft = 1
-cn_spin = 0
+#month = 12
+#year = 2022
+#day_of_week = 2
+#day_of_year = 345
+#hour = 3
+#cn_bird = 0
+#cn_lime = 0
+#cn_lyft = 1
+#cn_spin = 0
 
 body_container = st.container()
 #input_container = st.container
@@ -51,7 +51,7 @@ result_container = st.container()
 
 #with form_sidebar:
 with st.sidebar:
-    address_select = st.selectbox("Select your address",address_df['Display'],index=1) 
+    address_select = st.selectbox("Select your address",address_df['Display']) 
 
     date_select = st.date_input("What day do you want to ride?")
 
@@ -136,11 +136,9 @@ def run():
         scooters = round(make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin),0)
         folium.Marker(json.loads(r['latlon']),popup="<i> Expected Available: " + str(scooters) + "</i>",icon=folium.Icon(color='green')).add_to(m)
 
-    #with result_container:
-    
-    st.header('Mapping Scooter Availability')
-
-    st_data = st_folium(m, width = 725)
+    with result_container:
+        st.header('Mapping Scooter Availability')
+        st_data = st_folium(m, width = 725)
 
 
 if search_button:
