@@ -191,7 +191,7 @@ def mapping():
 def main():
     if search_button:
         m = mapping()
-        map_container = st.empty()
+        map_container.empty()
         with map_container:
             #st.header('Mapping Scooter Availability')
             st_data = st_folium(m, width = 725, returned_objects=[])
