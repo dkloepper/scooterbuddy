@@ -24,14 +24,49 @@ import folium
 
 from sklearn.neighbors import KNeighborsRegressor
 
+@st.cache(persist=True)
 
-filename = 'scooter_pickle.sav'
-with open(filename, 'rb') as fIn:
-    scooter_pkl = pkl.load(fIn)
+#filename = 'scooter_pickle.sav'
 
-model = scooter_pkl['model']
-address_df = scooter_pkl['addresses']
+def decompress_pickle_model(filename):
+    with open(filename, 'rb') as fIn:
+        scooter_pkl = pkl.load(fIn)
+    model = scooter_pkl['model']
+    return model
+
+def decompress_pickle_address(filename):
+    with open(filename, 'rb') as fIn:
+        scooter_pkl = pkl.load(fIn)
+    address_df = scooter_pkl['addresses']
+    return address_df
+
+def decompress_pickle_centerline(filename):
+    with open(filename, 'rb') as fIn:
+        scooter_pkl = pkl.load(fIn)
+    centerline_df = scooter_pkl['centerlines']
+    return centerline_df
+    
+model = decompress_pickle_model('scooter_pickle.sav')
+#address_df = scooter_pkl['addresses']
 centerline_df = scooter_pkl['centerlines']
+
+def get_coordinates(address):
+    #Return the coordinates associated with address
+    df = decompress_pickle_address('scooter_pickle.sav')
+    coordinates = df.loc[df['Display'] == address]
+    return coordinates
+
+def find_within_dist(coords,dist):
+    df = decompress_pickle_centerline('scooter_pickle.sav')
+    df['distances'] = df.apply(lambda r: coords.distance(r['centroid'])  / 5279.98944, 
+        axis=1)
+    return df[(df['distances'] <= dist)]
+
+def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin):
+  entry = pd.DataFrame([[centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin]], 
+                 columns=["ClosestCenterlineID","month","year","day_of_week","day_of_year","hour","CompanyName_Bird","CompanyName_Lime","CompanyName_Lyft","CompanyName_Spin"])
+  prediction = model.predict(entry)
+  return prediction[0]
 
 body_container = st.container()
 input_container = st.container()
@@ -41,7 +76,8 @@ result_container = st.container()
 #with form_sidebar:
 #with st.sidebar:
 with input_container:
-    address_select = st.selectbox("Select your address",address_df['Display'])
+    address_select = st.text_input("Enter your address")
+    #address_select = st.selectbox("Select your address",address_df['Display'])
 
     date_select = st.date_input("What day do you want to ride?")
 
@@ -56,26 +92,6 @@ with input_container:
 with body_container:
     st.title("Scooter Buddy")
     st.markdown("""---""")
-    #query = st.text_input("Describe your perfect hotel in Athens:", "walking distance to acropolis, clean rooms, pool")
-    #search_button = st.button('Find a hotel')
-
-@st.cache(persist=True)
-
-def get_coordinates(address):
-    #Return the coordinates associated with address
-    coordinates = address_df.loc[address_df['Display'] == address]
-    return coordinates
-
-def find_within_dist(coords,df,dist):
-    df['distances'] = df.apply(lambda r: coords.distance(r['centroid'])  / 5279.98944, 
-        axis=1)
-    return df[(df['distances'] <= dist)]
-
-def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin):
-  entry = pd.DataFrame([[centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin]], 
-                 columns=["ClosestCenterlineID","month","year","day_of_week","day_of_year","hour","CompanyName_Bird","CompanyName_Lime","CompanyName_Lyft","CompanyName_Spin"])
-  prediction = model.predict(entry)
-  return prediction[0]
 
 def run():
 
@@ -117,12 +133,11 @@ def run():
 
     coords = origin_point.iloc[0]['geometry']
     origin_latlon = origin_point.iloc[0]['latlon']
-    #origin_address = origin_point['Display']
 
     m = folium.Map(location=json.loads(origin_latlon), zoom_start=18)
     folium.Marker(json.loads(origin_latlon),popup="<i> Your Address: " + address_select + "</i>").add_to(m)
 
-    for _, r in find_within_dist(coords,centerline_df,distance).iterrows():
+    for _, r in find_within_dist(coords,distance).iterrows():
         centerline = r['GBSID']
         scooters = round(make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin),0)
         folium.Marker(json.loads(r['latlon']),popup="<i> Expected Available: " + str(scooters) + "</i>",icon=folium.Icon(color='green')).add_to(m)
