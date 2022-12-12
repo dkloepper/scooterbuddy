@@ -48,7 +48,7 @@ def decompress_pickle_centerline(filename):
     
 model = decompress_pickle_model('scooter_pickle.sav')
 #address_df = scooter_pkl['addresses']
-centerline_df = scooter_pkl['centerlines']
+#centerline_df = scooter_pkl['centerlines']
 
 def get_coordinates(address):
     #Return the coordinates associated with address
