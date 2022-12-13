@@ -57,14 +57,14 @@ model = decompress_pickle_model('scooter_pickle.sav')
 #address_df = scooter_pkl['addresses']
 #centerline_df = scooter_pkl['centerlines']
 
-def get_coordinates(address):
+def get_coordinates(address, df):
     #Return the coordinates associated with address
-    df = decompress_pickle_address('scooter_pickle.sav')
+    #df = decompress_pickle_address('scooter_pickle.sav')
     coordinates = df.loc[df['Display'] == address]
     return coordinates
 
-def find_within_dist(coords,dist):
-    df = decompress_pickle_centerline('scooter_pickle.sav')
+def find_within_dist(coords,dist,df):
+    #df = decompress_pickle_centerline('scooter_pickle.sav')
     df['distances'] = df.apply(lambda r: coords.distance(r['centroid'])  / 5279.98944, 
         axis=1)
     return df[(df['distances'] <= dist)]
@@ -130,7 +130,7 @@ with right:
 
     #   st_data = st_folium(m, width = 650, height=650, returned_objects=[])
 
-def mapping():
+def mapping(address_df,centerline_df):
 
     month = date_select.month
     year = date_select.year
@@ -177,7 +177,7 @@ def mapping():
     else:
         zoom = 18
 
-    origin_point = get_coordinates(address_select)
+    origin_point = get_coordinates(address_select, address_df)
 
     coords = origin_point.iloc[0]['geometry']
     origin_latlon = origin_point.iloc[0]['latlon']
@@ -185,7 +185,7 @@ def mapping():
     m = folium.Map(location=json.loads(origin_latlon), zoom_start=zoom)
     folium.Marker(json.loads(origin_latlon),popup="<i> Your Address: " + address_select + "</i>").add_to(m)
 
-    for _, r in find_within_dist(coords,distance).iterrows():
+    for _, r in find_within_dist(coords,distance,centerline_df).iterrows():
         centerline = r['GBSID']
         scooters = round(make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin),0)
         folium.Marker(json.loads(r['latlon']),popup="<i> Expected Available: " + str(scooters) + "</i>",icon=folium.Icon(color='green')).add_to(m)
@@ -193,12 +193,17 @@ def mapping():
     return m
 
 def main():
+
+    address_df = decompress_pickle_address('scooter_pickle.sav')
+    centerline_df = decompress_pickle_centerline('scooter_pickle.sav')
+
     if search_button:
-        m = mapping()
+        m = mapping(address_df,centerline_df)
         map_container.empty()
         with map_container.container():
             #st.header('Mapping Scooter Availability')
             st_data = st_folium(m, width = 650, height=650, returned_objects=[])
+
 
 if __name__ == '__main__':
 	main()
