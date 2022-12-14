@@ -91,7 +91,7 @@ with left:
 
         brand = st.radio("Select a preferred brand:",('Bird','Lime','Lyft','Spin'))
 
-        distance = st.selectbox("Select a distance from you",(.1,.15,.2,.25,.3,.35,.4,.45,.5,.75,1))
+        distance = st.selectbox("Select a distance from you",(.1,.15,.2,.25,.3,.35,.4,.45,.5))
 
         search_button = st.form_submit_button('Find a scooter!')
 
