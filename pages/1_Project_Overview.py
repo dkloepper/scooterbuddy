@@ -35,9 +35,9 @@ with left:
 with right:
     st.image('csom1.png', width=500)
 
-    m = folium.Map(location=[44.67040, -93.24511], zoom_start=18)
+    m = folium.Map(location=[44.97040, -93.24511], zoom_start=18)
     folium.Marker(
-        [44.67040, -93.24511], popup="Carlson School of Management"
+        [44.97040, -93.24511], popup="Carlson School of Management"
     ).add_to(m)
 
     st_data = st_folium(m, width = 500, height=500, returned_objects=[])
