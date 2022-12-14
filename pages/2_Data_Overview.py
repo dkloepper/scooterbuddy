@@ -30,7 +30,7 @@ st.markdown('''GeoJSON is a format for encoding geographic structures like point
 In the case of the address data, each record contained a POINT with the latitude/longitude coordinates.
 
 The centerline data was, unsuprisinly a LineString with begining and end points marked with latitude/longitude.''')
-st.markdown('<a href="https://geojson.org/">GeoPandas</a>',unsafe_allow_html=True)
+st.markdown('<a href="https://geojson.org/">GeoJSON</a>',unsafe_allow_html=True)
 
 st.markdown('''The GeoPandas module extends the standard features of Pandas, making it easy to work with the GeoJSON data types within a dataframe. 
 It also provides convient functions for processes like calculating distance or finding the centroid of two points''')
