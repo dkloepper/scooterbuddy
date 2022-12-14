@@ -10,7 +10,7 @@ with st.sidebar:
     st.image('scooter.jpg')
 
 st.title("Scooter Buddy: Project Overview")
-st.text("David Kloepper (kloe0021@umn.edu")
+st.markdown("David Kloepper [kloe0021@umn.edu](mailto:kloe0021)")
 st.markdown("""---""")
 
 st.subheader("Project Origins")
@@ -56,7 +56,7 @@ with about_mapping:
     st.subheader("About Mapping") 
 
     st.markdown("The maps in this app are powered by Folium and streamlit_folium")
-    st.markdown("Folium allows you do your data wrangling in Python and apply it to a map build with leaflet.js (NO javascript required)")
+    st.markdown("Folium allows you do your data wrangling in Python and apply it to a map build with leaflet.js, NO javascript required! More information <a href='https://randyzwitch-streamlit-folium-examplesstreamlit-app-qc22uj.streamlit.app/')HERE</a>)
     st.markdown("""streamlit_folium enables easy application of Folium within a streamlit app. Thank you to Randy Zwitch. 
     More information can be found <a href='https://randyzwitch-streamlit-folium-examplesstreamlit-app-qc22uj.streamlit.app/')HERE</a> on another Streamlit app.""")
 
