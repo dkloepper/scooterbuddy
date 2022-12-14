@@ -24,7 +24,7 @@ As a starting point, Pycaret was brough to bear in an attempt to simplify the mo
 
 Initial setup of Pycaret within the Google Colab notebook was not clean, as Sklearn needed to be downgraded to a lower version for Pycaret to function. This would create later conflicts with sklearn versions in Streamlit.
 
-Once functioning, Pycaret recommended a RandomForest regression model with the following settings:
+Once functioning, Pycaret recommended a RandomForest regression model with the following hyperparmeter settings:
 ''')
 rf_model = ('''rf2 = RandomForestRegressor(bootstrap=True, ccp_alpha=0.0, criterion='mse',
                       max_depth=None, max_features='auto', max_leaf_nodes=None,
@@ -35,6 +35,10 @@ rf_model = ('''rf2 = RandomForestRegressor(bootstrap=True, ccp_alpha=0.0, criter
                       verbose=0, warm_start=False)''')
 
 st.code(rf_model, language="python")
+
+st.markdown('''
+The model was then trained 
+''')
 
 st.subheader('Model Outputs and GitHub LFS')
 st.markdown('''

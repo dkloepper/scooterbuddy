@@ -27,6 +27,7 @@ with left:
 
     st.header("Project Learnings and Future Work:") 
 
+    st.markdown("* For a demo, use less data! Paring down the datasets could have saved significant time.")
     st.markdown("* There is a Python module for just about anything. Never would have known about geoPandas or folium without this project.")
     st.markdown("* Streamlit can be a lot of fun to customize. Columns, sidebars, multipages.")
     st.markdown("* Streamlit can be trick to make performant. Case in point: address selection")
@@ -37,7 +38,7 @@ with left:
     st.markdown("* The need to have data for the model for scooters unavailable. Without it, everything predicts as 1")
     st.markdown('* Rethinking training data approach, using 2019 and 2020 data to predict 2021.')
     st.markdown("* Pycaret can be useful for model selection, but also a pain. I encountered sklearn versioning issues galore.")
-    st.markdown("* ")
+    
 
 with right:
     st.image('csom1.png', width=500)
@@ -56,7 +57,8 @@ with about_mapping:
 
     st.markdown("The maps in this app are powered by Folium and streamlit_folium")
     st.markdown("Folium allows you do your data wrangling in Python and apply it to a map build with leaflet.js (NO javascript required)")
-    st.markdown("streamlit_folium enables easy application of Folium within a streamlit app.")
+    st.markdown("""streamlit_folium enables easy application of Folium within a streamlit app. Thank you to Randy Zwitch. 
+    More information can be found <a href='https://randyzwitch-streamlit-folium-examplesstreamlit-app-qc22uj.streamlit.app/')HERE</a> on another Streamlit app.""")
 
     st.markdown("Here is all the code required to draw the map above:")
 
