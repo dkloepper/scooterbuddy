@@ -2,13 +2,6 @@ import streamlit as st
 import folium
 from streamlit_folium import st_folium
 
-@st.cache(persist=True)
-
-st.set_page_config(
-    page_title="Scooter Buddy - Project Overview",
-    page_icon="🛴",
-    layout="wide"
-)
 
 st.title("Scooter Buddy: Project Overview")
 st.text("David Kloepper (kloe0021@umn.edu")
@@ -18,7 +11,8 @@ left, right = st.columns(2)
 
 with left:
     st.text("This app was developed as a final course project for MABA6490, fall semester 2022. \
-        The idea came from )
+        Full disclosure: I have never rented a scooter or even taken a ride on one. \
+        The idea for this app was rather random. I had originally thought to use data on snow emergencies to predict likihood to be towed, but instead saw that scooter data was available and was futher motivated by seeing scooters in from of CSOM.")
 
     st.header("Project Objectives:") 
 
