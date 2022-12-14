@@ -17,15 +17,15 @@ with left:
 
     st.subheader("Project Objectives:") 
 
-    st.markdown("* Create a Streamlit app [deployed] to showcase your idea: \
-    * Add any visualization, details on the streamlit \
-    * The app should also be a demo of your idea \
-    * There should be a small intro of the idea at the start of streamlit \
-    * The model should be deployed , i.e. you cannot process the training data /corpus at run time, it has to be loaded in to the streamlit app \
-    * The app should take a user input and ""predict"" something [only on the app at runtime] \
-    * You will get 15 min max to present your entire ideas with Q&A \
-    * You will get an opportunity to provide feedback on each of your peer form for each project [except your own] and email me ONLY. The results will be aggregated and top three projects will be announced \
-    * The peer review will make up a size-able %age of your project grade.")
+    st.markdown("* Create a Streamlit app [deployed] to showcase your idea:"
+    "* Add any visualization, details on the streamlit"
+    "* The app should also be a demo of your idea"
+    "* There should be a small intro of the idea at the start of streamlit"
+    "* The model should be deployed , i.e. you cannot process the training data /corpus at run time, it has to be loaded in to the streamlit app"
+    "* The app should take a user input and ""predict"" something [only on the app at runtime]"
+    "* You will get 15 min max to present your entire ideas with Q&A"
+    "* You will get an opportunity to provide feedback on each of your peer form for each project [except your own] and email me ONLY. The results will be aggregated and top three projects will be announced."
+    "* The peer review will make up a size-able %age of your project grade.")
 
 
 
