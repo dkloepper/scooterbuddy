@@ -14,10 +14,10 @@ st.text("David Kloepper (kloe0021@umn.edu")
 st.markdown("""---""")
 
 st.subheader("Project Origins")
-st.markdown("This app was developed as a final course project for MABA6490, fall semester 2022. &nbsp;\
-        Full disclosure: I have never rented a scooter or even taken a ride on one. Maybe for graduation...&nbsp; \
-        The idea for this app was rather random. I had originally thought to use data on snow emergencies to predict likihood to be towed, but instead saw that scooter data was available and was futher motivated by seeing scooters in from of CSOM.&nbsp; \
-        This sent me down the rabbit hole of addresses, centerlines, and geocoordinates.")
+st.markdown('''This app was developed as a final course project for MABA6490, fall semester 2022.
+        Full disclosure: I have never rented a scooter or even taken a ride on one. Maybe for graduation...
+        The idea for this app was rather random. I had originally thought to use data on snow emergencies to predict likihood to be towed, but instead saw that scooter data was available and was futher motivated by seeing scooters in from of CSOM.
+        This sent me down the rabbit hole of addresses, centerlines, geocoordinates, models.''')
 st.markdown('GitHub Repository can be found <a href="https://github.com/dkloepper/scooterbuddy/">HERE</a>.',unsafe_allow_html=True)
 
 

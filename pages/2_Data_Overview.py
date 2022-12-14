@@ -42,13 +42,7 @@ st.markdown('<a href="https://geopandas.org/en/stable/">GeoPandas</a>',unsafe_al
 st.header("Data Cleansing")
 st.subheader("Scooter Data")
 st.markdown('''
-The scooter data was transformed in the following ways to support the modeling: 
-1. The 2019, 2020 and 2021 datasets were combined into a single data frame. Columns were the same except for the primary ID column.
-2. Date transformations were performed to break down the PollDate in to component fields (Year, Month, Hour, Day of Week, Day of Year).
-3. Scooter data for "trail" centerlines was dropped since they were not in the MPLS data.
-4. Numeric hours were converted into text ranges. This was done because poll times were not consistent across the years
-5. Duplicate records were created due to time bucketing and were dropped. 
-6. Brand field was converted to one-hot-encoding. Hour ranges were changed to ordinalEncoding. All numeric fields were optimized and uneeded fields dropped. 
+See the Modeling Approach page. 
 ''')
 st.subheader("Location Data")
 st.markdown('''
