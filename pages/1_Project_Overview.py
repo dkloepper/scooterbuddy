@@ -7,7 +7,7 @@ from streamlit_folium import st_folium
 st.set_page_config(
     page_title="Scooter Buddy - Project Overview",
     page_icon="🛴",
-    layout="wide",
+    layout="wide"
 )
 
 st.title("Scooter Buddy: Project Overview")

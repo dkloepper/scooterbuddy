@@ -27,7 +27,7 @@ from sklearn.neighbors import KNeighborsRegressor
 st.set_page_config(
     page_title="Scooter Buddy",
     page_icon="🛴",
-    layout="wide",
+    layout="wide"
 )
 
 @st.cache(allow_output_mutation=True)
