@@ -68,9 +68,16 @@ def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_
 
 
 st.title("Scooter Buddy")
-st.markdown("""---""")
 
-st.text("Use this app to find out if there will be a scooter available near you when you need it!")
+st.markdown('''
+
+Live or commute in Minneapolis? Ever wondered if there might be a foot scooter available nearby you?
+
+Enter your address, select a data and time, a preferred brand to ride and how far you're willing to search, then let Scooter Buddy do the rest. 
+
+''')
+
+st.markdown("""---""")
 
 left, right = st.columns(2)
 
