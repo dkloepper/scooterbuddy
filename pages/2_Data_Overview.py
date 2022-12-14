@@ -1,5 +1,8 @@
 import streamlit as st
 
+with st.sidebar:
+    st.image('scooter.jpg')
+
 st.title("Scooter Buddy -- Data Overview")
 st.markdown("---")
 

@@ -6,6 +6,8 @@ st.set_page_config(
     layout="wide"
 )
 
+with st.sidebar:
+    st.image('scooter.jpg')
 
 st.title("Scooter Buddy: Project Overview")
 st.text("David Kloepper (kloe0021@umn.edu")
