@@ -175,10 +175,11 @@ def main():
     centerline_df = decompress_pickle_centerline('scooter_pickle.sav')
 
     if search_button:
-        m = mapping(address_df,centerline_df)
-        map_container.empty()
-        with map_container.container():
-            st_data = st_folium(m, width = 650, height=650, returned_objects=[])
+        with st.spinner("Searching for scooters..."):
+            m = mapping(address_df,centerline_df)
+            map_container.empty()
+            with map_container.container():
+                st_data = st_folium(m, width = 650, height=650, returned_objects=[])
 
 
 if __name__ == '__main__':
