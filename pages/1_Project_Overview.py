@@ -28,7 +28,7 @@ with left:
     st.markdown("* How to upload large files with GitHub LFS. Had to use GitBash")
     st.markdown("* GitHub has a data cap! This project represents my second repo after crashing the first.")
     st.markdown("* The need to have data for the model for scooters unavailable. Without it, everything predicts as 1")
-    st.markdown("* Pycaret can be useful, but also a pain (sklearn versioning issues)")
+    st.markdown("* Pycaret can be useful, but also a pain (sklearn versioning issues galore)")
     st.markdown("* ")
     st.markdown("* ")
 
