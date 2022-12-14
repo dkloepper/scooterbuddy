@@ -167,12 +167,18 @@ def mapping(address_df,centerline_df):
     origin_latlon = origin_point.iloc[0]['latlon']
 
     m = folium.Map(location=json.loads(origin_latlon), zoom_start=zoom)
-    folium.Marker(json.loads(origin_latlon),popup="<i> Your Address: " + address_select + "</i>").add_to(m)
+    folium.Marker(json.loads(origin_latlon),popup="<i> Your Address: " + address_select + "</i>",icon=folium.Icon(color='blue')).add_to(m)
 
     for _, r in find_within_dist(coords,distance,centerline_df).iterrows():
         centerline = r['GBSID']
         scooters = round(make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin),0)
-        folium.Marker(json.loads(r['latlon']),popup="<i> Expected Available: " + str(scooters) + "</i>",icon=folium.Icon(color='green')).add_to(m)
+        if scooters >= 2:
+            icon_color = 'green'
+        elif scooters == 1:
+            icon_color = 'yellow'
+        else:
+            icon_color = 'red'
+        folium.Marker(json.loads(r['latlon']),popup=r['LOCATION'],tooltip="<i> Expected Available: " + str(scooters) + "</i>",icon=folium.Icon(color=icon_color)).add_to(m)
 
     return m
 
