@@ -10,6 +10,7 @@ st.title("Scooter Buddy: Project Overview")
 st.text("David Kloepper (kloe0021@umn.edu")
 st.markdown("""---""")
 
+st.subheader("Project Origins")
 st.markdown("This app was developed as a final course project for MABA6490, fall semester 2022. &nbsp;\
         Full disclosure: I have never rented a scooter or even taken a ride on one. Maybe for graduation...&nbsp; \
         The idea for this app was rather random. I had originally thought to use data on snow emergencies to predict likihood to be towed, but instead saw that scooter data was available and was futher motivated by seeing scooters in from of CSOM.&nbsp; \
@@ -19,7 +20,7 @@ left, right = st.columns(2)
 
 with left:
 
-    st.subheader("Project Learnings:") 
+    st.header("Project Learnings:") 
 
     st.markdown("* There is a Python module for just about anything. Never would have known about geoPandas or folium without this project.")
     st.markdown("* Streamlit can be a lot of fun to customize. Columns, sidebars, multipages.")
@@ -29,7 +30,7 @@ with left:
     st.markdown("* GitHub has a data cap! This project represents my second repo after crashing the first.")
     st.markdown("* The need to have data for the model for scooters unavailable. Without it, everything predicts as 1")
     st.markdown("* Pycaret can be useful, but also a pain (sklearn versioning issues galore)")
-    st.markdown("* ")
+    st.markdown("* GitHub Desktop is way better than using GitBash (except for LFS)")
     st.markdown("* ")
 
 with right:
@@ -41,3 +42,27 @@ with right:
     ).add_to(m)
 
     st_data = st_folium(m, width = 500, height=500, returned_objects=[])
+
+about_mapping = st.container()
+
+with mapping:
+    st.subheader("About Mapping") 
+
+    st.markdown("The maps in this app are powered by Folium and streamlit_folium")
+    st.markdown("Folium allows you do your data wrangling in Python and apply it to a map build with leaflet.js (NO javascript required)")
+    st.markdown("streamlit_folium enables easy application of Folium within a streamlit app.")
+
+    st.markdown("Here is all the code required to draw the map above:")
+
+    with st.echo()
+        import folium
+        import streamlit as st
+
+        from streamlit_folium import st_folium
+
+        m = folium.Map(location=[44.97040, -93.24511], zoom_start=18)
+        folium.Marker(
+            [44.97040, -93.24511], popup="Carlson School of Management"
+        ).add_to(m)
+
+        st_data = st_folium(m, width = 500, height=500, returned_objects=[])

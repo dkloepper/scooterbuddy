@@ -18,6 +18,10 @@ st.markdown('- ClosestCenterlineType: The type of centerline, either street or t
 st.markdown('- Neighborhood: The neighborhood the centerline segment is located in.')
 
 st.subheader("Location Data")
+st.markdown('I used two location-based datasets as input and connection to the scooter data:')
+st.markdown('- *EAS Address:* This dataset contains all addresses for the city of Minneapolis. ')
+st.markdown('- *PollTime:* The time the API was polled for a snapshot of available scooters.')
+
 
 st.header("Data Type -- GeoJSON")
 
