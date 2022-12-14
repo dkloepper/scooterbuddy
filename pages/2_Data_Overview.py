@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.title("Scooter Buddy -- Data Overview")
-st.markdown("""---""")
+st.markdown("---")
 
 st.header("Data Source --  Open Data Minneapolis")
 st.markdown('<a href="https://opendata.minneapolismn.gov/">Open Data Minneapolis</a>',unsafe_allow_html=True)
@@ -19,9 +19,9 @@ st.markdown('- Neighborhood: The neighborhood the centerline segment is located 
 
 st.subheader("Location Data")
 st.markdown('I used two location-based datasets as input and connection to the scooter data:')
-st.markdown('- *EAS Address:* This dataset contains all addresses for the city of Minneapolis. From this dataset, I used the "display" address as well as the latitude/longitude of the address.')
+st.markdown('- *EAS Address:* This dataset contains all addresses for the city of Minneapolis. From this dataset, I used the "display" address as well as the latitude/longitude of the address. In total, there were 154,706 unique address records in the dataset.')
 st.markdown('<a href="https://opendata.minneapolismn.gov/datasets/cityoflakes::eas-addresses/about">EAS Addresses/a>',unsafe_allow_html=True)
-st.markdown('- *MPLS:* This dataset contains the coordinates for the center of the pavement for all drivable streets in Minneapolis. These centerlines are used as locations in the scooter data')
+st.markdown('- *MPLS:* This dataset contains the coordinates for the center of the pavement for all drivable streets in Minneapolis. These centerlines are used as locations in the scooter data, building hte connection to geo-location. There were 13,838 centerline records in the dataset.')
 st.markdown('<a href="https://opendata.minneapolismn.gov/datasets/cityoflakes::mpls-centerline/about">MPLS Centerline</a>',unsafe_allow_html=True)
 
 st.header("Data Type -- GeoJSON & GeoPandas")

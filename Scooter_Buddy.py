@@ -77,7 +77,7 @@ Enter your address, select a data and time, a preferred brand to ride and how fa
 
 ''')
 
-st.markdown("""---""")
+st.markdown("---")
 
 left, right = st.columns(2)
 
