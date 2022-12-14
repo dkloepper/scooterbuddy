@@ -54,7 +54,7 @@ with mapping:
 
     st.markdown("Here is all the code required to draw the map above:")
 
-    with st.echo()
+    with st.echo():
         import folium
         import streamlit as st
 
