@@ -67,6 +67,9 @@ def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_
   return prediction[0]
 
 
+with st.sidebar:
+    st.image('scooter.jpg')
+
 st.title("Scooter Buddy")
 
 st.markdown('''

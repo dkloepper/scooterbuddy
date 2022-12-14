@@ -6,6 +6,7 @@ st.set_page_config(
     layout="wide"
 )
 
+
 st.title("Scooter Buddy: Project Overview")
 st.text("David Kloepper (kloe0021@umn.edu")
 st.markdown("""---""")
