@@ -20,17 +20,18 @@ left, right = st.columns(2)
 
 with left:
 
-    st.header("Project Learnings:") 
+    st.header("Project Learnings and Future Work:") 
 
     st.markdown("* There is a Python module for just about anything. Never would have known about geoPandas or folium without this project.")
     st.markdown("* Streamlit can be a lot of fun to customize. Columns, sidebars, multipages.")
     st.markdown("* Streamlit can be trick to make performant. Case in point: address selection")
     st.markdown("* Exporting models creates really big files! Like GBs of data.")
+    st.markdown("* GitHub Desktop is way better than using GitBash (except for LFS)")
     st.markdown("* How to upload large files with GitHub LFS. Had to use GitBash")
     st.markdown("* GitHub has a data cap! This project represents my second repo after crashing the first.")
     st.markdown("* The need to have data for the model for scooters unavailable. Without it, everything predicts as 1")
-    st.markdown("* Pycaret can be useful, but also a pain (sklearn versioning issues galore)")
-    st.markdown("* GitHub Desktop is way better than using GitBash (except for LFS)")
+    st.markdown('* Rethinking training data approach, using 2019 and 2020 data to predict 2021.')
+    st.markdown("* Pycaret can be useful for model selection, but also a pain. I encountered sklearn versioning issues galore.")
     st.markdown("* ")
 
 with right:
