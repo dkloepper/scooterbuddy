@@ -54,7 +54,7 @@ with about_mapping:
 
     st.markdown("Here is all the code required to draw the map above:")
 
-    with st.echo():
+    mapping_code = '''
         import folium
         import streamlit as st
 
@@ -65,4 +65,5 @@ with about_mapping:
             [44.97040, -93.24511], popup="Carlson School of Management"
         ).add_to(m)
 
-        st_data = st_folium(m, width = 500, height=500, returned_objects=[])
+        st_data = st_folium(m, width = 500, height=500, returned_objects=[])'''
+    st.code(mapping_code, language='python')
