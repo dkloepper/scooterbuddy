@@ -10,27 +10,26 @@ st.title("Scooter Buddy: Project Overview")
 st.text("David Kloepper (kloe0021@umn.edu")
 st.markdown("""---""")
 
-st.markdown("This app was developed as a final course project for MABA6490, fall semester 2022. \
-        Full disclosure: I have never rented a scooter or even taken a ride on one. \
+st.markdown("This app was developed as a final course project for MABA6490, fall semester 2022. U+000A \
+        Full disclosure: I have never rented a scooter or even taken a ride on one. U+000A \
         The idea for this app was rather random. I had originally thought to use data on snow emergencies to predict likihood to be towed, but instead saw that scooter data was available and was futher motivated by seeing scooters in from of CSOM.")
 
 left, right = st.columns(2)
 
 with left:
 
-    st.subheader("Project Objectives:") 
+    st.subheader("Project Learnings:") 
 
-    st.markdown("* Create a Streamlit app [deployed] to showcase your idea:")
-    st.markdown("* Add any visualization, details on the streamlit")
-    st.markdown("* The app should also be a demo of your idea")
-    st.markdown("* There should be a small intro of the idea at the start of streamlit")
-    st.markdown("* The model should be deployed , i.e. you cannot process the training data /corpus at run time, it has to be loaded in to the streamlit app")
-    st.markdown("* The app should take a user input and ""predict"" something [only on the app at runtime]")
-    st.markdown("* You will get 15 min max to present your entire ideas with Q&A")
-    st.markdown("* You will get an opportunity to provide feedback on each of your peer form for each project [except your own] and email me ONLY. The results will be aggregated and top three projects will be announced.")
-    st.markdown("* The peer review will make up a size-able %age of your project grade.")
-
-
+    st.markdown("* There is a Python module for just about anything.")
+    st.markdown("* Streamlit can be a lot of fun to customize.")
+    st.markdown("* Streamlit can be trick to make performant")
+    st.markdown("* Exporting models creates really big files!")
+    st.markdown("* How to upload large files with GitHub LFS")
+    st.markdown("* GitHub has a data cap!")
+    st.markdown("* The need to have data for the model for scooters unavailable")
+    st.markdown("* ")
+    st.markdown("* ")
+    st.markdown("* ")
 
 with right:
     st.image('csom1.png', width=500)
