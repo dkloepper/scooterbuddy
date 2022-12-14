@@ -174,7 +174,7 @@ def mapping(address_df,centerline_df):
         scooters = round(make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_bird, cn_lime, cn_lyft, cn_spin),0)
         if scooters >= 2:
             icon_color = 'green'
-        elif scooters == 1:
+        elif 1 <= scooters < 2 :
             icon_color = 'yellow'
         else:
             icon_color = 'red'
