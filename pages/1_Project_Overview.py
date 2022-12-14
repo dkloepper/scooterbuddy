@@ -45,7 +45,7 @@ with right:
 
 about_mapping = st.container()
 
-with mapping:
+with about_mapping:
     st.subheader("About Mapping") 
 
     st.markdown("The maps in this app are powered by Folium and streamlit_folium")
