@@ -69,6 +69,8 @@ st.code(knn_model, language="python")
 st.markdown('''
 Further data tweaks were made to the scooter data (grouping hours into ranges, dropping neighborhood as an input field), and the model retrained. When exporting this model, the Pickle file size was around 138MB, a significant reduction, making it feasible to host on GitHub and iterate as needed. 
 
+It was after this, I realized that the model was produced using the downgraded version of sklearn (due to using Pycaret) and was leading to errors in Streamlit. After restarting the Colab notebook and ensuring the correct version of Sklearn, the model was run again and issues resolved. 
+
 If revisiting this app in the future, there are additional steps I would take to improve the results:
 1. The scooter data has no negative cases, pretty much ensuring the models will predict at least 1 scooter at every location. I devised a method to generate that data, but given sizing and timing limits, was not able to implement for this demo.
 2. Try a trainng/test split based on years, rather than random on combined set. Hopefully 2022 data will be availble soon!
