@@ -30,10 +30,7 @@ st.set_page_config(
     layout="wide",
 )
 
-#@st.cache(persist=True)
 @st.cache(allow_output_mutation=True)
-
-#filename = 'scooter_pickle.sav'
 
 def decompress_pickle_model(filename):
     with open(filename, 'rb') as fIn:
@@ -54,12 +51,9 @@ def decompress_pickle_centerline(filename):
     return centerline_df
     
 model = decompress_pickle_model('scooter_pickle.sav')
-#address_df = scooter_pkl['addresses']
-#centerline_df = scooter_pkl['centerlines']
 
 def get_coordinates(address, df):
     #Return the coordinates associated with address
-    #df = decompress_pickle_address('scooter_pickle.sav')
     coordinates = df.loc[df['Display'] == address]
     return coordinates
 
@@ -76,25 +70,12 @@ def make_prediction(centerline, month, year, day_of_week, day_of_year, hour, cn_
   return prediction[0]
 
 
-
-#body_container = st.container()
-#input_container = st.container()
-
-#result_container = st.container()
-#form_sidebar = st.sidebar()
-
-#with form_sidebar:
-#with st.sidebar:
-#with input_container:
-
-
-#with body_container:
 st.title("Scooter Buddy")
 st.markdown("""---""")
 
+st.text("Use this app to find out if there will be a scooter available near you when you need it!")
+
 left, right = st.columns(2)
-
-
 
 with left:
 
@@ -105,7 +86,6 @@ with left:
     input_form = st.form("input",clear_on_submit=False)
 
     with input_form:
-        #address_select = st.text_input("Select your starting address:")
         address_select = st.selectbox("Select your address",address_list)
 
         date_select = st.date_input("What day do you want to ride?")
@@ -116,19 +96,16 @@ with left:
 
         distance = st.selectbox("Select a distance from you",(.1,.15,.2,.25,.3,.35,.4,.45,.5,.75,1))
 
-        #search_button = st.button('Find a scooter!')
         search_button = st.form_submit_button('Find a scooter!')
 
 with right:
 
     map_container = st.empty()
-    #with map_container.container():
-    #    m = folium.Map(location=[44.968996124, -93.240332372], zoom_start=18)
-    #    folium.Marker(
-    #        [44.968996124, -93.240332372], popup="Carlson School of Management"
-    #    ).add_to(m)
 
-    #   st_data = st_folium(m, width = 650, height=650, returned_objects=[])
+footer = st.container()
+
+with footer:
+    st.text("David Kloepper kloe0021@umn.edu")
 
 def mapping(address_df,centerline_df):
 
@@ -201,7 +178,6 @@ def main():
         m = mapping(address_df,centerline_df)
         map_container.empty()
         with map_container.container():
-            #st.header('Mapping Scooter Availability')
             st_data = st_folium(m, width = 650, height=650, returned_objects=[])
 
 
