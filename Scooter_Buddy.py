@@ -109,7 +109,7 @@ with right:
 footer = st.container()
 
 with footer:
-    st.text("David Kloepper kloe0021@umn.edu")
+    st.markdown("---")
 
 def mapping(address_df,centerline_df):
 

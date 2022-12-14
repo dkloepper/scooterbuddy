@@ -15,6 +15,8 @@ st.markdown("This app was developed as a final course project for MABA6490, fall
         Full disclosure: I have never rented a scooter or even taken a ride on one. Maybe for graduation...&nbsp; \
         The idea for this app was rather random. I had originally thought to use data on snow emergencies to predict likihood to be towed, but instead saw that scooter data was available and was futher motivated by seeing scooters in from of CSOM.&nbsp; \
         This sent me down the rabbit hole of addresses, centerlines, and geocoordinates.")
+st.markdown('GitHub Repository can be found <a href="https://github.com/dkloepper/scooterbuddy/">HERE</a>.',unsafe_allow_html=True)
+
 
 left, right = st.columns(2)
 
