@@ -6,18 +6,15 @@
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import datetime
+#import matplotlib.pyplot as plt
+#import datetime
 import json
 
-import geopandas as gpd
+#import geopandas as gpd
 
 import pickle as pkl
 
 import streamlit as st
-
-#from IPython.display import display
-#from ipywidgets import embed
 
 from streamlit_folium import st_folium
 import folium
@@ -175,11 +172,10 @@ def main():
     centerline_df = decompress_pickle_centerline('scooter_pickle.sav')
 
     if search_button:
-        with st.spinner("Searching for scooters..."):
-            m = mapping(address_df,centerline_df)
-            map_container.empty()
-            with map_container.container():
-                st_data = st_folium(m, width = 650, height=650, returned_objects=[])
+        m = mapping(address_df,centerline_df)
+        map_container.empty()
+        with map_container.container():
+            st_data = st_folium(m, width = 650, height=650, returned_objects=[])
 
 
 if __name__ == '__main__':
