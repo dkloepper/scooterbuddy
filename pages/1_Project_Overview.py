@@ -10,9 +10,10 @@ st.title("Scooter Buddy: Project Overview")
 st.text("David Kloepper (kloe0021@umn.edu")
 st.markdown("""---""")
 
-st.markdown("This app was developed as a final course project for MABA6490, fall semester 2022. U+000A \
-        Full disclosure: I have never rented a scooter or even taken a ride on one. U+000A \
-        The idea for this app was rather random. I had originally thought to use data on snow emergencies to predict likihood to be towed, but instead saw that scooter data was available and was futher motivated by seeing scooters in from of CSOM.")
+st.markdown("This app was developed as a final course project for MABA6490, fall semester 2022. &nbsp;\
+        Full disclosure: I have never rented a scooter or even taken a ride on one. Maybe for graduation...&nbsp; \
+        The idea for this app was rather random. I had originally thought to use data on snow emergencies to predict likihood to be towed, but instead saw that scooter data was available and was futher motivated by seeing scooters in from of CSOM.&nbsp; \
+        This sent me down the rabbit hole of addresses, centerlines, and geocoordinates.")
 
 left, right = st.columns(2)
 
@@ -20,14 +21,14 @@ with left:
 
     st.subheader("Project Learnings:") 
 
-    st.markdown("* There is a Python module for just about anything.")
+    st.markdown("* There is a Python module for just about anything. Never would have known about geoPandas or folium without this project.")
     st.markdown("* Streamlit can be a lot of fun to customize.")
-    st.markdown("* Streamlit can be trick to make performant")
-    st.markdown("* Exporting models creates really big files!")
-    st.markdown("* How to upload large files with GitHub LFS")
-    st.markdown("* GitHub has a data cap!")
-    st.markdown("* The need to have data for the model for scooters unavailable")
-    st.markdown("* ")
+    st.markdown("* Streamlit can be trick to make performant. Case in point: address selection")
+    st.markdown("* Exporting models creates really big files! Like GBs of data.")
+    st.markdown("* How to upload large files with GitHub LFS. Had to use GitBash")
+    st.markdown("* GitHub has a data cap! This project represents my second repo after crashing the first.")
+    st.markdown("* The need to have data for the model for scooters unavailable. Without it, everything predicts as 1")
+    st.markdown("* Pycaret can be useful, but also a pain (sklearn versioning issues)")
     st.markdown("* ")
     st.markdown("* ")
 
