@@ -175,7 +175,7 @@ def mapping(address_df,centerline_df):
         if scooters >= 2:
             icon_color = 'green'
         elif 1 <= scooters < 2 :
-            icon_color = 'yellow'
+            icon_color = 'gray'
         else:
             icon_color = 'red'
         folium.Marker(json.loads(r['latlon']),popup=r['LOCATION'],tooltip="<i> Expected Available: " + str(scooters) + "</i>",icon=folium.Icon(color=icon_color)).add_to(m)
