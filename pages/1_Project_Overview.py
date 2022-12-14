@@ -55,15 +55,16 @@ with about_mapping:
     st.markdown("Here is all the code required to draw the map above:")
 
     mapping_code = '''
-        import folium
-        import streamlit as st
 
-        from streamlit_folium import st_folium
+    import folium
+    import streamlit as st
 
-        m = folium.Map(location=[44.97040, -93.24511], zoom_start=18)
-        folium.Marker(
-            [44.97040, -93.24511], popup="Carlson School of Management"
-        ).add_to(m)
+    from streamlit_folium import st_folium
 
-        st_data = st_folium(m, width = 500, height=500, returned_objects=[])'''
+    m = folium.Map(location=[44.97040, -93.24511], zoom_start=18)
+    folium.Marker(
+        [44.97040, -93.24511], popup="Carlson School of Management"
+    ).add_to(m)
+
+    st_data = st_folium(m, width = 500, height=500, returned_objects=[])'''
     st.code(mapping_code, language='python')
