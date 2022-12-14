@@ -22,7 +22,7 @@ with left:
     st.subheader("Project Learnings:") 
 
     st.markdown("* There is a Python module for just about anything. Never would have known about geoPandas or folium without this project.")
-    st.markdown("* Streamlit can be a lot of fun to customize.")
+    st.markdown("* Streamlit can be a lot of fun to customize. Columns, sidebars, multipages.")
     st.markdown("* Streamlit can be trick to make performant. Case in point: address selection")
     st.markdown("* Exporting models creates really big files! Like GBs of data.")
     st.markdown("* How to upload large files with GitHub LFS. Had to use GitBash")
