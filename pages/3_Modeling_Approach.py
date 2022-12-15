@@ -48,7 +48,7 @@ The trained Random Forest model was output using Pickle, packaged with the locat
 This resulted in two issues:
 1. Very large files cannot be commited to GitHub via the desktop app. 
 
-Solving this required using GitHub Large File Storage (LFS) and using Git Bash console to connect to the repo, add, commit, and push the file. (Helpful directions <a href='https://medium.com/linkit-intecs/how-to-upload-large-files-to-github-repository-2b1e03723d2')HERE</a>)
+Solving this required using GitHub Large File Storage (LFS) and using Git Bash console to connect to the repo, add, commit, and push the file. (Helpful directions <a href='https://medium.com/linkit-intecs/how-to-upload-large-files-to-github-repository-2b1e03723d2'>HERE</a>)
 
 2. GitHub free accounts have a maximum size: 2GB overall
 3. GitHub free accounts have 1GB caps on LFS storage and bandwidth

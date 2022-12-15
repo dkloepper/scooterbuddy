@@ -56,9 +56,9 @@ with about_mapping:
     st.subheader("About Mapping") 
 
     st.markdown("The maps in this app are powered by Folium and streamlit_folium")
-    st.markdown('Folium allows you do your data wrangling in Python and apply it to a map build with leaflet.js, NO javascript required! More information <a href="https://randyzwitch-streamlit-folium-examplesstreamlit-app-qc22uj.streamlit.app/")HERE</a>',unsafe_allow_html=True)
+    st.markdown('Folium allows you do your data wrangling in Python and apply it to a map build with leaflet.js, NO javascript required! More information <a href="https://randyzwitch-streamlit-folium-examplesstreamlit-app-qc22uj.streamlit.app/">HERE</a>',unsafe_allow_html=True)
     st.markdown('''streamlit_folium enables easy application of Folium within a streamlit app. Thank you to Randy Zwitch. 
-    More information can be found <a href="https://randyzwitch-streamlit-folium-examplesstreamlit-app-qc22uj.streamlit.app/")HERE</a> on another Streamlit app.''',unsafe_allow_html=True)
+    More information can be found <a href="https://randyzwitch-streamlit-folium-examplesstreamlit-app-qc22uj.streamlit.app/">HERE</a> on another Streamlit app.''',unsafe_allow_html=True)
 
     st.markdown("Here is all the code required to draw the map above:")
 
